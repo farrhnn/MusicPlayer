@@ -24,7 +24,7 @@ const tracks = [
     title: "Multo",
     artist: "Cup of Joe",
     src: "music/multo.mp3",
-    cover: "images/multo.jpg",
+    cover: "images/Multo.jpg",
     video: "videos/multo.mp4",
     lyrics: [
       { time: 0.1, text: "Minumulto na 'ko ng damdamin ko" },
