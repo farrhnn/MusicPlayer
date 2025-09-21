@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kaii - Music Player</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="music-player-container">
+
+    <video id="background-video" autoplay loop muted playsinline></video>
+
+    <div class="player-content">
+
+      <div class="album-cover">
+        <img id="album-art" src="images/cover1.jpg" alt="Album Cover">
+      </div>
+
+      <div class="track-info">
+        <h2 id="song-title">Judul Lagu</h2>
+        <h3 id="artist-name">Nama Artis</h3>
+      </div>
+
+      <div class="controls">
+        <button id="prev-btn" aria-label="Previous song">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11 18V6l-8.5 6L11 18zm1-12v12l8.5-6L12 6z"/>
+          </svg>
+        </button>
+
+        <button id="play-pause-btn" class="main-btn">
+  <svg id="play-icon" viewBox="0 0 24 24">
+    <path d="M5 4l14 8-14 8z"/>
+  </svg>
+  <svg id="pause-icon" class="hidden" viewBox="0 0 24 24">
+    <path d="M6 4h4v16H6zM14 4h4v16h-4z"/>
+  </svg>
+</button>
+
+        <button id="next-btn" aria-label="Next song">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 6v12l8.5-6L4 6zm9 0v12l8.5-6L13 6z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <input type="range" id="progress-bar" value="0" min="0" step="1" />
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="lyrics-container">
+        <ul id="lyrics-text">
+          <li class="lyric-line">Lirik akan muncul di sini.</li>
+        </ul>
+      </div>
+
+      <div class="music-list">
+        <h3>Daftar Putar</h3>
+        <ul id="playlist"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

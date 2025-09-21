@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hidden { display: none; }
+
+/* ===== BACKGROUND VIDEO ===== */
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ===== PLAYER CONTAINER ===== */
+.music-player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.player-content {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* ===== ALBUM COVER ===== */
+.album-cover img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* ===== TRACK INFO ===== */
+.track-info h2 {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+.track-info h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  color: #ccc;
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.controls button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.12s;
+}
+
+.controls button:hover {
+  background: rgba(255,255,255,0.16);
+  transform: translateY(-2px);
+}
+
+.controls svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+/* ===== PLAY/PAUSE UTAMA ===== */
+.controls .main-btn {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.controls .main-btn:hover {
+  transform: scale(1.1);
+  background: #ddd;
+}
+
+.controls .main-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #000;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+#progress-bar {
+  flex: 1;
+  appearance: none;
+  height: 4px;
+  background: #666;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+#progress-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ===== LYRICS ===== */
+.lyrics-container {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.lyrics-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.lyrics-container li {
+  padding: 4px 0;
+  color: #ccc;
+  transition: color 0.3s, font-size 0.3s;
+}
+
+.lyrics-container li.active,
+.lyric-line.active {
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255,255,255,0.7);
+}
+
+/* ===== PLAYLIST ===== */
+.music-list,
+#playlist {
+  list-style: none;
+  margin-top: 15px;
+  padding: 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.music-list li,
+#playlist li {
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.12s ease;
+}
+
+.music-list li:hover,
+#playlist li:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateX(3px);
+}
+
+#playlist li:focus-visible {
+  outline: 2px solid rgba(255,95,109,0.9);
+  outline-offset: 3px;
+}
+
+#playlist li.active {
+  background: rgba(255,255,255,0.14);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .player-content { padding: 16px; width: 95%; }
+  .album-cover img { width: 140px; height: 140px; }
+  .controls button { width: 48px; height: 48px; }
+  .controls .main-btn { width: 48px; height: 48px; }
+  .controls .main-btn svg { width: 20px; height: 20px; }
+  .track-info h2 { font-size: 18px; }
+  .lyrics-container { max-height: 120px; }
+  #playlist { max-height: 80px; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
